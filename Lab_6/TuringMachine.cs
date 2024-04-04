@@ -155,8 +155,46 @@ class TuringMachine
             { ' ', Tuple.Create(' ', Direction.R, State.qFin)}
         }}
     };
-    public readonly Dictionary<State, Dictionary<char, Tuple<char, Direction, State>>> rulesConverter = new Dictionary<State, Dictionary<char, Tuple<char, Direction, State>>> {
-        
+    public readonly Dictionary<State, Dictionary<char, Tuple<char, Direction, State>>> rulesConverter = new Dictionary<State, Dictionary<char, Tuple<char, Direction, State>>> { 
+        { State.q0, new Dictionary<char, Tuple<char, Direction, State>> {
+            { 'I', Tuple.Create('I', Direction.L, State.q0) },
+            { ' ', Tuple.Create('X', Direction.R, State.q1) }
+        }},
+        { State.q1, new Dictionary<char, Tuple<char, Direction, State>> {
+            { '0', Tuple.Create('0', Direction.R, State.q1) },
+            { 'I', Tuple.Create('I', Direction.R, State.q1) },
+            { '2', Tuple.Create('2', Direction.R, State.q1) },
+            { '3', Tuple.Create('3', Direction.R, State.q1) },
+            { '4', Tuple.Create('4', Direction.R, State.q1) },
+            { '5', Tuple.Create('5', Direction.R, State.q1) },
+            { '6', Tuple.Create('6', Direction.R, State.q1) },
+            { '7', Tuple.Create('7', Direction.R, State.q1) },
+            { '8', Tuple.Create('8', Direction.R, State.q1) },
+            { '9', Tuple.Create('9', Direction.R, State.q1) },
+            { 'X', Tuple.Create('X', Direction.R, State.q1) },
+            { ' ', Tuple.Create(' ', Direction.L, State.q2) }
+        }},
+        { State.q2, new Dictionary<char, Tuple<char, Direction, State>> {
+            { 'I', Tuple.Create(' ', Direction.L, State.q3) },
+            { 'X', Tuple.Create(' ', Direction.L, State.qFin) }
+        }},
+        { State.q3, new Dictionary<char, Tuple<char, Direction, State>> {
+            { 'I', Tuple.Create('I', Direction.L, State.q3) },
+            { 'X', Tuple.Create('X', Direction.L, State.q4) }
+        }},
+        { State.q4, new Dictionary<char, Tuple<char, Direction, State>> {
+            { ' ', Tuple.Create('1', Direction.R, State.q1) },
+            { '0', Tuple.Create('1', Direction.R, State.q1) },
+            { '1', Tuple.Create('2', Direction.R, State.q1) },
+            { '2', Tuple.Create('3', Direction.R, State.q1) },
+            { '3', Tuple.Create('4', Direction.R, State.q1) },
+            { '4', Tuple.Create('5', Direction.R, State.q1) },
+            { '5', Tuple.Create('6', Direction.R, State.q1) },
+            { '6', Tuple.Create('7', Direction.R, State.q1) },
+            { '7', Tuple.Create('8', Direction.R, State.q1) },
+            { '8', Tuple.Create('9', Direction.R, State.q1) },
+            { '9', Tuple.Create('0', Direction.L, State.q4) }
+        }}
     };
     static bool ValidateString(string first, string second)
     {

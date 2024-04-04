@@ -54,6 +54,12 @@ while (true)
             break;
         case 5:
             Console.Clear();
+            Console.Write("Enter unary number: ");
+            string unaryNumber = Console.ReadLine();
+            Console.Write("Result: ");
+            Console.WriteLine(turingMachine.TuringMachineRun(unaryNumber, "", 4, debug: true));
+            Console.Write("Press any key to continue...");
+            Console.ReadKey();
             break;
         case 0:
             Environment.Exit(0);
